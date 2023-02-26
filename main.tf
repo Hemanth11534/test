@@ -15,3 +15,18 @@ resource "aws_s3_bucket_public_access_block" "example" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
+
+resource "aws_s3_bucket_lifecycle_configuration" "example" {
+  bucket = aws_s3_bucket.bucket.id
+
+  rule {
+     id      = "dev"
+     status = "Enabled"
+
+    prefix = "dev/"
+	
+    expiration {
+      date = "2022-03-07T00:00:00Z"
+    }
+  }
+}
