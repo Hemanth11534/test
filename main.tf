@@ -2,6 +2,11 @@ resource "aws_s3_bucket" "hemudev" {
   bucket = "hemu-dev"
 }
 
+resource "aws_s3_bucket_acl" "example" {
+  bucket = aws_s3_bucket.hemudev.id
+  acl    = "private"
+}
+
 resource "aws_s3_bucket_object" "archive" {
   bucket = aws_s3_bucket.hemudev.id
   key    = "dev/"
