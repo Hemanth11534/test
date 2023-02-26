@@ -17,7 +17,7 @@ resource "aws_s3_bucket_public_access_block" "example" {
 }
 
 resource "aws_s3_bucket_lifecycle_configuration" "example" {
-  bucket = aws_s3_bucket.bucket.id
+  bucket = aws_s3_bucket.ecxample.id
 
   rule {
      id      = "dev"
